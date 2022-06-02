@@ -1,1 +1,41 @@
-# Popcorn, lights off, action!
+# Popcorn, lights off, action! 🍿
+<h2>About this project 🎬</h2>
+
+The application consists of a movie search engine, with four pages ("homepage", "my movies" and "about"). Here you can save the movies you choose as "to watch" and mark the ones you have already seen. For the latter you can also comment your opinion about the movie. These will be stored on your computer, so that everything you save will not be deleted when you refresh the page.
+
+<h3>What are we going to use?:</h3>
+<ul>
+  <li>Lion Web Components</li>
+  <li>HTML5</li>
+  <li>CSS3</li>
+  <li>Node.js</li>
+  <li>LitElement</li>
+  <li>Storybook</li>
+  <li>Test runner</li>
+  <li>Local Storage</li>
+  <li>Multi-language</li>
+</ul>
+
+<h3>Installation:</h3>
+<ul>
+  <li>Package.json:
+     
+    npm init
+    
+  </li>
+  <li>LitElement:
+  
+    npm i lit-element
+  
+  </li>
+  <li>Storybook package:
+  
+    npm i --save-dev @web/dev-server-storybook
+  
+  </li>
+  <li>Test Runner Visual Regression:
+  
+    npm i--save-dev @web/test-runner-visual-regression
+  
+  </li>
+</ul>
