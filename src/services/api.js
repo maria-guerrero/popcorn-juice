@@ -10,21 +10,3 @@ export const callToApi = async () => {
       return null;
   }
 };
-
-// async function callToApi () {
-//     const response = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=49081783');
-//     const movies = await response.json()
-
-//     .then(data => {
-//         const cleanData = data.map((movie) => {
-//             return {
-//                 poster: movie.poster,
-//                 title: movie.title,
-//                 imdbRating: movie.imdbRating
-//             }
-//         });
-//         return cleanData;
-//     })
-// }
-
-// export default callToApi;
