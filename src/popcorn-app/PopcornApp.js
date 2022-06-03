@@ -1,17 +1,21 @@
-import { LitElement, html } from "../../node_modules/lit-element/index.js";
+import { LitElement, html } from "lit-element" // "../../node_modules/lit-element/index.js";
 import { styles } from "./PopcornApp.styles.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { callToApi } from "../services/api.js";
 import { PopcornMovies } from "../popcorn-movies/PopcornMovies.js";
-
-callToApi ()
+import { PopcornHeader } from "../popcorn-header/PopcornHeader.js";
+import { PopcornMain } from "../popcorn-main/PopcornMain.js";
+import { PopcornFooter } from "../popcorn-footer/PopcornFooter.js";
 
 export class PopcornApp extends ScopedElementsMixin(LitElement) {
 
   static get scopedElements() {
     return {
       "popcorn-movies": PopcornMovies,
-    }
+      "popcorn-header": PopcornHeader,
+      "popcorn-main": PopcornMain,
+      "popcorn-footer": PopcornFooter,
+    };
   }
 
   static get styles() {
@@ -21,7 +25,7 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
   static get properties() {
     return {
       movies: { type: Array },
-    }
+    };
   }
 
   constructor() {
@@ -29,45 +33,28 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
     this.movies = [];
   }
 
+  // To push the movies
+   connectedCallback() {
+     super.connectedCallback();
+     const element = await callToApi();
+     this.movies.push(element);
+   }
+
   renderHeader() {
     return html`
-      <header>
-        <nav class="nav">
-          <h1 class="title">Popcorn juice</h1>
-          <ul class="listNav">
-            <li class="elementList">Homepage</li>
-            <li class="elementList">My movies</li>
-            <li class="elementList">About</li>
-          </ul>
-          <div>
-            <label for="search">
-              <input placeholder="Spiderman" class="input" type="text" />
-            </label>
-            <lion-button class="search">Search</lion-button>
-          </div>
-        </nav>
-      </header>
+      <popcorn-header></popcorn-header>
     `;
   }
 
   renderMain() {
     return html`
-      <main>
-        <section>
-          <popcorn-movies
-            .movies=${this.movies}
-          ></popcorn-movies>
-        </section>
-      </main>
+      <popcorn-main></popcorn-main>
     `;
   }
 
   renderFooter() {
-      const author = "María";
       return html `
-        <footer class="footer">
-            <p>Made with 🖤 by &copy;${author}</p>
-        </footer>
+        <popcorn-footer></popcorn-footer>
       `;
   }
 

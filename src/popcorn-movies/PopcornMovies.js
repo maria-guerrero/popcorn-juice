@@ -1,7 +1,7 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html, nothing } from "lit-element";
 import { styles } from "./PopcornMovies.styles.js";
 
-export class PopcornMovie extends LitElement {
+export class PopcornMovies extends LitElement {
 
     static get styles() {
         return styles;
@@ -11,6 +11,12 @@ export class PopcornMovie extends LitElement {
         return {
             movies: { type: Array },
         };
+    }
+
+    render() {
+        if (!this.movies) {
+            return nothing;
+        }
     }
 
     render() {
