@@ -4,10 +4,18 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "lit-element": "^3.2.0"
+    "@lion/button": "^0.18.0",
+    "@lion/input-amount": "^0.17.0",
+    "@lion/localize": "^0.25.0",
+    "@open-wc/scoped-elements": "^2.0.0-next.6",
+    "lit-element": "^3.2.0",
+    "lit-html": "^2.2.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@web/dev-server": "^0.1.31"
+  },
   "scripts": {
+    "start": "web-dev-server --node-resolve --open --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
