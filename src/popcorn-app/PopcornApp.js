@@ -2,7 +2,6 @@ import { LitElement, html } from "lit-element" // "../../node_modules/lit-elemen
 import { styles } from "./PopcornApp.styles.js";
 import { callToApi } from "../services/api.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
-import { PopcornMovies } from "../popcorn-movies/PopcornMovies.js";
 import { PopcornHeader } from "../popcorn-header/PopcornHeader.js";
 import { PopcornMain } from "../popcorn-main/PopcornMain.js";
 import { PopcornFooter } from "../popcorn-footer/PopcornFooter.js";
