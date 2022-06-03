@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit-element" // "../../node_modules/lit-element/index.js";
+import { LitElement, html } from "lit-element"; // "../../node_modules/lit-element/index.js";
 import { styles } from "./PopcornApp.styles.js";
 import { callToApi } from "../services/api.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
@@ -11,7 +11,7 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     callToApi().then((movie) => {
-      this.movies.push(movie);
+      this.movies = [...this.movies, movie];
     });
   }
 
@@ -38,25 +38,15 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
     this.movies = [];
   }
 
-  renderHeader() {
+  renderHtml() {
     return html`
       <popcorn-header></popcorn-header>
+      <popcorn-main .movies=${this.movies}></popcorn-main>
+      <popcorn-footer></popcorn-footer>
     `;
-  }
-
-  renderMain() {
-    return html`
-      <popcorn-main></popcorn-main>
-    `;
-  }
-
-  renderFooter() {
-      return html `
-        <popcorn-footer></popcorn-footer>
-      `;
   }
 
   render() {
-    return html` ${this.renderHeader()} ${this.renderMain()} ${this.renderFooter()}; `;
+    return html` ${this.renderHtml()}; `
   }
 }

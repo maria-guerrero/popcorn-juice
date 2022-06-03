@@ -19,16 +19,22 @@ export class PopcornMovies extends ScopedElementsMixin(LitElement) {
     }
   }
 
+  constructor() {
+    super();
+    this.movies = [];
+  }
+
   render() {
-    console.log(this.movies);
+      console.log(this.movies);
     return html`
       <ul>
         ${this.movies.map(
           (movie) => html`
             <li>
+              <img src=${movie.Poster}>
               <p>${movie.Title}</p>
+              <p>${movie.imdbRating}</p>
             </li>
-            <p>hello world</p>
           `
         )}
       </ul>
