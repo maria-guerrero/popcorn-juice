@@ -1,7 +1,8 @@
 import { LitElement, html, nothing } from "lit-element";
 import { styles } from "./PopcornFooter.styles.js";
+import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 
-export class PopcornFooter extends LitElement {
+export class PopcornFooter extends ScopedElementsMixin(LitElement) {
   static get styles() {
     return styles;
   }

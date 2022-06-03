@@ -1,7 +1,8 @@
 import { LitElement, html } from "lit-element";
 import { styles } from "./PopcornHeader.styles.js";
+import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 
-export class PopcornHeader extends LitElement {
+export class PopcornHeader extends ScopedElementsMixin(LitElement) {
 
   static get styles() {
     return styles;

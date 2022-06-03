@@ -1,7 +1,16 @@
 import { LitElement, html } from "lit-element";
 import { styles } from "./PopcornMain.styles.js";
+import { ScopedElementsMixin } from "@open-wc/scoped-elements";
+import { callToApi } from "../services/api.js";
 
-export class PopcornMain extends LitElement {
+export class PopcornMain extends ScopedElementsMixin(LitElement) {
+
+  static get scopedElements() {
+    return {
+      "popcorn-movies": PopcornMovies,
+    };
+  }
+
   static get styles() {
     return styles;
   }
@@ -12,13 +21,17 @@ export class PopcornMain extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.movies = [];
+  }
+
   render() {
+    console.log(this.movies);
     return html`
       <main>
         <section>
-          <popcorn-movies .movies=${this.movies}
-            >${this.connectedCallback()}</popcorn-movies
-          >
+          <popcorn-movies .movies=${this.movies}></popcorn-movies>
         </section>
       </main>
     `;
