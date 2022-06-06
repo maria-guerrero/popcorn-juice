@@ -1,11 +1,7 @@
-export const callToApi = async () => {
+export const callToApi = async (inputValue) => {
   try {
-    /* let inputValue = element.shadowRoot.querySelector('[data-testid="input"]');
-
-    inputValue = inputValue.value; */
-
     const response = await fetch(
-      `http://www.omdbapi.com/?s=Star+Wars&apikey=49081783`
+      `http://www.omdbapi.com/?s=${inputValue}&apikey=49081783`
     );
     const data = await response.json();
     const dataMovies = data.Search;

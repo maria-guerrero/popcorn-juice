@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit-element";
+/* import { LitElement, html } from "lit-element";
 import { navigator } from "lit-element-router";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 
@@ -22,4 +22,4 @@ export class Link extends navigator(ScopedElementsMixin(LitElement)) {
     ev.preventDefault();
     this.navigate(this.href);
   }
-}
+} */

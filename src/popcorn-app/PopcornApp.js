@@ -5,15 +5,22 @@ import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { PopcornHeader } from "../popcorn-header/PopcornHeader.js";
 import { PopcornMain } from "../popcorn-main/PopcornMain.js";
 import { PopcornFooter } from "../popcorn-footer/PopcornFooter.js";
+// import { Router } from "@vaadin/router";
+
+// window.addEventListener('load', () => { (1)
+//   initRouter();
+// });
+
+// const outlet = document.getElementById("outlet");
+// const router = new Router(outlet);
+// router.setRoutes([
+//   { path: "/", component: "Homepage" },
+//   { path: "/my-movies", component: "Mymovies" },
+//   { path: "/about", component: "About" },
+//   { path: "(.*)", component: "notFound" },
+// ]);
 
 export class PopcornApp extends ScopedElementsMixin(LitElement) {
-
-  connectedCallback() {
-    super.connectedCallback();
-    callToApi().then((movie) => {
-      this.movies = movie;
-    });
-  }
 
   static get scopedElements() {
     return {
@@ -42,7 +49,7 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
 
   renderHtml() {
     return html`
-      <popcorn-header></popcorn-header>
+      <popcorn-header @input-search=${this.onClickSearch}></popcorn-header>
       <popcorn-main .movies=${this.movies}></popcorn-main>
       <popcorn-footer></popcorn-footer>
     `;
@@ -50,5 +57,11 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
 
   render() {
     return html` ${this.renderHtml()} `;
+  }
+
+  onClickSearch(e) {
+    callToApi(e.detail).then((movie) => {
+      this.movies = movie;
+    });
   }
 }

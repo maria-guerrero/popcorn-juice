@@ -8,16 +8,19 @@
     "@lion/input-amount": "^0.17.0",
     "@lion/localize": "^0.25.0",
     "@open-wc/scoped-elements": "^2.0.0-next.6",
+    "@vaadin/router": "^1.7.4",
     "lit-element": "^3.2.0",
     "lit-element-router": "^2.0.3",
     "lit-html": "^2.2.5"
   },
   "devDependencies": {
-    "@web/dev-server": "^0.1.31"
+    "@web/dev-server": "^0.1.31",
+    "@web/dev-server-storybook": "^0.5.1"
   },
   "scripts": {
     "start": "web-dev-server --node-resolve --open --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "wds --config .web-server-storybook/web-server-storybook.config.mjs --watch"
   },
   "repository": {
     "type": "git",
