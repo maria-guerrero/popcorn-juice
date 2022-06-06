@@ -10,7 +10,7 @@ export class PopcornFooter extends ScopedElementsMixin(LitElement) {
   render() {
     const author = "María";
     return html`
-      <footer class="footer">
+      <footer>
         <p>Made with 🖤 by &copy;${author}</p>
       </footer>
     `;

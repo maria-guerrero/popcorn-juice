@@ -11,7 +11,7 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     callToApi().then((movie) => {
-      this.movies = [...this.movies, movie];
+      this.movies = movie;
     });
   }
 
@@ -30,12 +30,14 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
   static get properties() {
     return {
       movies: { type: Array },
+      inputValue: { type: String },
     };
   }
 
   constructor() {
     super();
     this.movies = [];
+    this.inputValue = '';
   }
 
   renderHtml() {
@@ -47,6 +49,6 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
   }
 
   render() {
-    return html` ${this.renderHtml()}; `
+    return html` ${this.renderHtml()} `;
   }
 }
