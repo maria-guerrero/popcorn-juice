@@ -6,6 +6,7 @@ The application consists of a movie search engine, with four pages ("homepage", 
 <h3>What are we going to use?:</h3>
 <ul>
   <li>Lion Web Components</li>
+  <li>OMDb API</li>
   <li>HTML5</li>
   <li>CSS3</li>
   <li>Node.js</li>
@@ -17,25 +18,25 @@ The application consists of a movie search engine, with four pages ("homepage", 
 </ul>
 
 <h3>Installation:</h3>
-<ul>
-  <li>Package.json:
-     
-    npm init
-    
-  </li>
-  <li>LitElement:
-  
-    npm i lit-element
-  
-  </li>
-  <li>Storybook package:
-  
-    npm i --save-dev @web/dev-server-storybook
-  
-  </li>
-  <li>Test Runner Visual Regression:
-  
-    npm i--save-dev @web/test-runner-visual-regression
-  
-  </li>
-</ul>
+
+    npm install
+
+<hr>
+<h3>To run...</h3>
+<h5>The project:</h5>
+
+    npm run start
+
+<h5>Storybook:</h5>
+
+    npm run storybook
+
+<h5>Test Runner and Coverage:</h5>
+
+    npm run test
+
+    npm run test:watch
+
+<h5>Visual Tests:</h5>
+
+    npm run test:visual-update
