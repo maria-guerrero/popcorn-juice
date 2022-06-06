@@ -22,7 +22,7 @@ The application consists of a movie search engine, with four pages ("homepage", 
     npm install
 
 <hr>
-<h3>To run...</h3>
+<h3>To run and launch...</h3>
 <h5>The project:</h5>
 
     npm run start
