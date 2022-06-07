@@ -5,23 +5,18 @@ import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { PopcornHeader } from "../popcorn-header/PopcornHeader.js";
 import { PopcornMain } from "../popcorn-main/PopcornMain.js";
 import { PopcornFooter } from "../popcorn-footer/PopcornFooter.js";
-// import { Router } from "@vaadin/router";
+import { Router } from "@vaadin/router";
 
-// window.addEventListener('load', () => { (1)
-//   initRouter();
-// });
-
-// const outlet = document.getElementById("outlet");
-// const router = new Router(outlet);
-// router.setRoutes([
-//   { path: "/", component: "Homepage" },
-//   { path: "/my-movies", component: "Mymovies" },
-//   { path: "/about", component: "About" },
-//   { path: "(.*)", component: "notFound" },
-// ]);
+const outlet = document.getElementById("outlet");
+const router = new Router(outlet);
+router.setRoutes([
+  { path: "/", component: "Homepage" },
+  { path: "/my-movies", component: "Mymovies" },
+  { path: "/about", component: "About" },
+  { path: "(.*)", component: "notFound" },
+]);
 
 export class PopcornApp extends ScopedElementsMixin(LitElement) {
-
   static get scopedElements() {
     return {
       "popcorn-header": PopcornHeader,
@@ -44,7 +39,7 @@ export class PopcornApp extends ScopedElementsMixin(LitElement) {
   constructor() {
     super();
     this.movies = [];
-    this.inputValue = '';
+    this.inputValue = "";
   }
 
   renderHtml() {
