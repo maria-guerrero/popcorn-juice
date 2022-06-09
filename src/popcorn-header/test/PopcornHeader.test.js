@@ -1,5 +1,4 @@
-import { html } from "lit-html";
-import { expect, fixture } from "@open-wc/testing";
+import { expect, fixture, html } from "@open-wc/testing";
 import { PopcornHeader } from "../PopcornHeader.js";
 
 describe("PopcornHeader", () => {
