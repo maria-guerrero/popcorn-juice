@@ -1,5 +1,5 @@
 import { visualDiff } from "@web/test-runner-visual-regression";
-import { PopcornListMovies } from "../PopcornListVisual.js";
+import { PopcornListMovies } from "../PopcornListMovies.js";
 
 if (!customElements.get("popcorn-list-movies")) {
   customElements.define("popcorn-list-movies", PopcornListMovies);
