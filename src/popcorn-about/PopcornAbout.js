@@ -2,7 +2,7 @@ import { LitElement, html } from "lit-element";
 
 export class PopcornAbout extends LitElement {
     render() {
-        html `
+       return html `
             <p>About page</p>
         `;
     }

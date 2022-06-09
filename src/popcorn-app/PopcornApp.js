@@ -32,16 +32,16 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
   static get routes() {
     return [
       {
-        name: "homepage",
-        pattern: "",
-      },
-      {
         name: "my-movies",
         pattern: "my-movies",
       },
       {
         name: "about",
         pattern: "about",
+      },
+      {
+        name: "homepage",
+        pattern: "*",
       },
     ];
   }
@@ -75,7 +75,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     super();
     this.movies = [];
     this.inputValue = "";
-    this.routes = "";
+    this.route = "";
     this.params = {};
     this.query = {};
     this.data = {};
@@ -84,9 +84,8 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
   renderHtml() {
     return html`
       <popcorn-header @input-search=${this.onClickSearch}> </popcorn-header>
-      <!-- active-route=${this.route} -->
 
-      <popcorn-main .movies=${this.movies}>
+      <popcorn-main .activeRoute=${this.route}>
         <popcorn-list-movies
           route="homepage"
           .movies=${this.movies}

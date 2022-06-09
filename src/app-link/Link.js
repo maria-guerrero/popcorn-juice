@@ -1,9 +1,8 @@
 import { LitElement, html, css } from "lit-element";
 import { navigator } from "lit-element-router";
-import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { styles } from "./Link.styles.js"
 
-export class Link extends navigator(ScopedElementsMixin(LitElement)) {
+export class Link extends navigator(LitElement) {
   static get styles() {
     return styles;
   }
