@@ -23,6 +23,7 @@
     "start": "web-dev-server --node-resolve --open --watch",
     "test": "web-test-runner ./src/**/test/*.test.js --node-resolve",
     "test:watch": "web-test-runner \"./src/**/test/*.test.js\" --node-resolve --watch --coverage",
+    "test:visual-update": "web-test-runner --config .web-test-runner/web-test-runner.config.mjs --update-visual-baseline",
     "storybook": "wds --config .web-server-storybook/web-server-storybook.config.mjs --watch"
   },
   "repository": {
