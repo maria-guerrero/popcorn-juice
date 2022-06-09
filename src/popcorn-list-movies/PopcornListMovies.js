@@ -2,7 +2,6 @@ import { LitElement, html, nothing } from "lit-element";
 import { styles } from "./PopcornListMovies.styles.js";
 
 export class PopcornListMovies extends LitElement {
-
   static get styles() {
     return styles;
   }
@@ -25,6 +24,7 @@ export class PopcornListMovies extends LitElement {
   }
 
   render() {
+    console.log(this.movies);
     return html`
       <ul>
         ${this.movies.map(

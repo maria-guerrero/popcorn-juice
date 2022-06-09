@@ -1,4 +1,4 @@
-import { expect, fixture, defineCE, elementUpdated } from "@open-wc/testing";
+import { expect, fixture } from "@open-wc/testing";
 import { PopcornHeader } from "../PopcornHeader.js";
 
 describe("PopcornHeader", () => {
