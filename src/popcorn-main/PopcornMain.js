@@ -1,14 +1,14 @@
 import { LitElement, html } from "lit-element";
 import { styles } from "./PopcornMain.styles.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
-import { PopcornMovies } from "../popcorn-movies/PopcornMovies.js";
+import { PopcornListMovies } from "../popcorn-list-movies/PopcornListMovies.js";
 import { outlet } from "lit-element-router";
 
 export class PopcornMain extends outlet(ScopedElementsMixin(LitElement)) {
 
   static get scopedElements() {
     return {
-      "popcorn-movies": PopcornMovies,
+      "popcorn-list-movies": PopcornListMovies,
     };
   }
 
@@ -31,8 +31,9 @@ export class PopcornMain extends outlet(ScopedElementsMixin(LitElement)) {
     return html`
       <main>
         <section>
-          <popcorn-movies .movies=${this.movies}></popcorn-movies>
+          <popcorn-list-movies .movies=${this.movies}></popcorn-list-movies>
         </section>
+        <slot></slot>
       </main>
     `;
   }

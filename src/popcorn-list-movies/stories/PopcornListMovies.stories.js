@@ -1,11 +1,11 @@
 import { html } from "lit-element";
 
-import { PopcornMovies } from "../PopcornMovies.js";
+import { PopcornListMovies } from "../PopcornListMovies.js";
 window.customElements.define("popcorn-movies", PopcornMovies);
 
 export default {
-  title: "PopcornMovies",
+  title: "PopcornListMovies",
 };
 
 export const MoviesStory = () =>
-  html`<popcorn-movies></popcorn-movies>`;
+  html`<popcorn-list-movies></popcorn-list-movies>`;

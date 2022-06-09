@@ -23,11 +23,6 @@ export const styles = css`
     color: #fc6471;
   }
 
-  a {
-      text-decoration-color: #fc6471;
-      color: #fc6471;
-  }
-
   ul {
     background-color: white;
     display: flex;

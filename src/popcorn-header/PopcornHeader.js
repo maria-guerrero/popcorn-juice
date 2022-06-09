@@ -2,6 +2,7 @@ import { LitElement, html } from "lit-element";
 import { styles } from "./PopcornHeader.styles.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
+import { Link } from "../app-link/Link.js";
 
 export class PopcornHeader extends ScopedElementsMixin(LitElement) {
   static get styles() {
@@ -11,6 +12,7 @@ export class PopcornHeader extends ScopedElementsMixin(LitElement) {
   static get scopedElements() {
     return {
       "lion-button": LionButtonSubmit,
+      "app-link": Link,
     };
   }
 
@@ -29,11 +31,10 @@ export class PopcornHeader extends ScopedElementsMixin(LitElement) {
     return html`
       <header>
         <nav>
-          <h1>Popcorn juice</h1>
+          <h1><app-link href="/homepage">Popcorn juice</app-link></h1>
           <ul>
-            <li><a href="/">Homepage</a></li>
-            <li><a href="/my-movies">My movies</a></li>
-            <li><a href="/about">About</a></li>
+            <app-link href="/my-movies">My movies</app-link>
+            <app-link href="/about">About</app-link>
           </ul>
           <div>
             <label for="search">
