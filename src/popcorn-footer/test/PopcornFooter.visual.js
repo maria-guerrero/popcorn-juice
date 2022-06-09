@@ -6,7 +6,7 @@ if(!customElements.get("popcorn-footer")) {
 }
 
 describe("PopcornFooter", () => {
-    it("can diff an element", async () => {
+    it("should show the footer", async () => {
         const element = document.createElement("popcorn-footer");
         document.body.appendChild(element);
 

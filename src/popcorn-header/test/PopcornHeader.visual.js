@@ -6,10 +6,10 @@ if(!customElements.get("popcorn-header")) {
 }
 
 describe("PopcornHeader", () => {
-    it("can diff an element", async () => {
+    it("should show the header with pages", async () => {
         const element = document.createElement("popcorn-header");
         document.body.appendChild(element);
 
         await visualDiff(element, "popcorn-header");
-    })
+    });
 })
