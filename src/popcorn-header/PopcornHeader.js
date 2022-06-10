@@ -1,12 +1,31 @@
 import { LitElement, html } from "lit-element";
-import { styles } from "./PopcornHeader.styles.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
-import { Link } from "../app-link/Link.js";
+import { localize, LocalizeMixin } from '@lion/localize';
 
-export class PopcornHeader extends ScopedElementsMixin(LitElement) {
+import { Link } from "../app-link/Link.js";
+import { styles } from "./PopcornHeader.styles.js";
+
+const LOCALE_KEY = "popcorn-header";
+
+export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)) {
   static get styles() {
     return styles;
+  }
+
+  static get localizeNamespaces() {
+    return [
+      {
+        [LOCALE_KEY]: (locale) => {
+          const namespaces = {
+            "en-GB": () => import ("./translations/en-GB.js"),
+            "es-ES": () => import ("./translations/es-ES.js"),
+          };
+          return (namespaces[locale] || namespaces["en-GB"])();
+        },
+      },
+      ...super.localizeNamespaces,
+    ];
   }
 
   static get scopedElements() {
@@ -31,10 +50,10 @@ export class PopcornHeader extends ScopedElementsMixin(LitElement) {
     return html`
       <header>
         <nav>
-          <h1><app-link href="/homepage">Popcorn juice</app-link></h1>
+          <h1><app-link href="/homepage">${localize.msg("popcorn-header:title")}</app-link></h1>
           <ul>
-            <app-link href="/my-movies">My movies</app-link>
-            <app-link href="/about">About</app-link>
+            <app-link href="/my-movies">${localize.msg("popcorn-header:myMoviesPage")}</app-link>
+            <app-link href="/about">${localize.msg("popcorn-header:aboutPage")}</app-link>
           </ul>
           <div>
             <label for="search">
@@ -48,7 +67,7 @@ export class PopcornHeader extends ScopedElementsMixin(LitElement) {
               />
             </label>
             <lion-button @click=${this.onClickSearch} class="search"
-              >Search</lion-button
+              >${localize.msg("popcorn-header:searchButton")}</lion-button
             >
           </div>
         </nav>

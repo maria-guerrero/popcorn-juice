@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit-element";
 import { navigator } from "lit-element-router";
+
 import { styles } from "./Link.styles.js"
 
 export class Link extends navigator(LitElement) {

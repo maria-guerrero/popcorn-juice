@@ -1,4 +1,5 @@
 import { LitElement, html } from "lit-element";
+
 import { styles } from "./PopcornMovies.styles.js";
 
 export class PopcornMovies extends LitElement {
@@ -21,7 +22,7 @@ export class PopcornMovies extends LitElement {
   render() {
     return html`
       <ul>
-        <li></li>
+        <li>My movies list</li>
       </ul>
     `;
   }

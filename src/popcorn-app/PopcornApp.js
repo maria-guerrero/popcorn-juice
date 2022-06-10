@@ -51,7 +51,6 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     this.params = params;
     this.query = query;
     this.data = data;
-    console.log(route, params, query, data);
   }
 
   onClickSearch(e) {
@@ -83,7 +82,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
 
   renderHtml() {
     return html`
-      <popcorn-header @input-search=${this.onClickSearch}> </popcorn-header>
+      <popcorn-header @input-search=${this.onClickSearch}></popcorn-header>
 
       <popcorn-main .activeRoute=${this.route}>
         <popcorn-list-movies
