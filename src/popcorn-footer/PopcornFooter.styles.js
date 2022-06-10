@@ -10,7 +10,7 @@ export const styles = css`
   footer {
     padding: 40px 20px 20px 20px;
     font-family: "Bebas Neue", cursive;
-    color: #fc6471;
+    color: #343853;
     display: flex;
     justify-content: center;
     align-items: center;

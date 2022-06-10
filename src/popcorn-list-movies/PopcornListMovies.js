@@ -18,6 +18,14 @@ export class PopcornListMovies extends LitElement {
     this.movies = [];
   }
 
+  onClickMovie() {
+    this.dispatchEvent(new CustomEvent("movie-element", { detail: this }))
+  }
+
+  onClickMovie(item) {
+    this.dispatchEvent(new CustomEvent("on-click-movie", { detail: item.currentTarget }));
+  }
+
   render() {
     if (!this.movies) {
       return nothing;
@@ -29,7 +37,7 @@ export class PopcornListMovies extends LitElement {
       <ul>
         ${this.movies.map(
           (movie) => html`
-            <li class="movieElement" key=${movie.imdbID}>
+            <li @click=${this.onClickMovie} data-testid="movieElement" class="movieElement" key=${movie.imdbID}>
               <img src=${movie.Poster} />
               <p class="movieTitle">${movie.Title}</p>
             </li>

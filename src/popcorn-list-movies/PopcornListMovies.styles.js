@@ -32,7 +32,7 @@ export const styles = css`
 
   .movieTitle {
     font-family: "Bebas Neue", cursive;
-    color: #7D5BA6;
+    color: #343853;
     text-align: center;
     width: 40vw;
     justify-content: center;

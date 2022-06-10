@@ -26,7 +26,7 @@ export class Link extends navigator(LitElement) {
 
   render() {
     return html`
-      <a href=${this.href} @click=${this.onClickLink}>
+      <a class="linkApp" href=${this.href} @click=${this.onClickLink}>
         <slot></slot>
       </a>
     `;

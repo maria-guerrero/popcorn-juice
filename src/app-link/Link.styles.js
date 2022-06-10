@@ -7,7 +7,8 @@ export const styles = css`
     background-color: #f7f7f7;
   }
 
-  a {
-    color: #fc6471;
+  .linkApp {
+    color: white;
+    background-color: transparent;
   }
 `;

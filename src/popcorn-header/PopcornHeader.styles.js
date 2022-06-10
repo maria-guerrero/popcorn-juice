@@ -4,7 +4,10 @@ export const styles = css`
   * {
     padding: 0;
     margin: 0;
-    background-color: #f7f7f7;
+  }
+
+  header {
+    background: linear-gradient(to bottom, #ff7903 0%, #f7f7f7 100%);
   }
 
   nav {
@@ -14,7 +17,7 @@ export const styles = css`
     flex-direction: column;
     align-items: center;
     font-family: "Bebas Neue", cursive;
-    border-bottom: 4px solid #55d6be;
+    border-bottom: 3px solid #34385322;
   }
 
   h1 {
@@ -24,31 +27,33 @@ export const styles = css`
   }
 
   ul {
-    background-color: white;
     display: flex;
     list-style-type: none;
     font-size: 20px;
   }
 
-  li {
-    padding: 10px;
-    color: #fc6471;
+  .link {
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   input {
-    border: 3px solid #55d6be;
+    border: 3px solid #ff7903;
     padding: 3px;
-    border-radius: 10px;
+    border-radius: 6px;
     margin-top: 10px;
   }
 
   .search {
+    
+    font-size: 13px;
+    text-align: center;
     font-family: "Bebas Neue", cursive;
     color: white;
-    background-color: #55d6be;
+    background-color: #343853;
     border: none;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 4px;
+    padding: 2px 15px 2px 15px;
     margin-left: 5px;
   }
 `;
