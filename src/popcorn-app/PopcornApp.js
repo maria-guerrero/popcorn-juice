@@ -60,8 +60,8 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
   }
 
   onClickAddMovie(e) {
-    this.movies = this.movies.filter((movie) => movie === e.currentTarget);
-    console.log(e.currentTarget);
+    this.movies = this.movies.filter((movie) => movie === e.target);
+    console.log(e.target);
   }
 
   static get properties() {

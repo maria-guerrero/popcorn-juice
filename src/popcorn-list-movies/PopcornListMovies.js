@@ -18,9 +18,9 @@ export class PopcornListMovies extends LitElement {
     this.movies = [];
   }
 
-  onClickAddMovie(item) {
+  onClickAddMovie(ev) {
     this.dispatchEvent(
-      new CustomEvent("on-click-movie", { detail: item.currentTarget })
+      new CustomEvent("on-click-movie", { detail: ev.target })
     );
   }
 

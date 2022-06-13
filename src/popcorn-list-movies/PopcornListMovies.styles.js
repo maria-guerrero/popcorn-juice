@@ -92,5 +92,9 @@ export const styles = css`
     .movieElement {
       padding: 10px;
     }
+
+    .addButton {
+      font-size: 17px;
+    }
   }
 `;
