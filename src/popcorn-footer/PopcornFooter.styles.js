@@ -16,4 +16,10 @@ export const styles = css`
     align-items: center;
     font-size: 14px;
   }
+
+  @media (min-width: 1200px) {
+      footer {
+        font-size: 20px;
+      }
+    }
 `;

@@ -1,4 +1,4 @@
-import { expect, fixture, defineCE } from "@open-wc/testing";
+import { expect, fixture, defineCE, elementUpdated } from "@open-wc/testing";
 import { PopcornHeader } from "../PopcornHeader.js";
 
 describe("PopcornHeader", () => {
@@ -15,4 +15,14 @@ describe("PopcornHeader", () => {
   it("should be accessible", async () => {
     await expect(element).to.be.accessible();
   });
+
+  it("should get the value correctly when the user search a movie", async () => {
+    element.inputValue = "Guardians of the galaxy";
+    await elementUpdated(element);
+
+    const searchButton = element.shadowRoot.querySelector('[data-testid="input"]');
+    searchButton.click();
+
+    expect(element.inputValue).to.be.equal("Guardians of the galaxy");
+  })
 });

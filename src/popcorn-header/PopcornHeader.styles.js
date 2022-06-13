@@ -26,7 +26,7 @@ export const styles = css`
     color: #fc6471;
   }
 
-  ul {
+  .appLinkArticle {
     display: flex;
     list-style-type: none;
     font-size: 20px;
@@ -45,7 +45,6 @@ export const styles = css`
   }
 
   .search {
-    
     font-size: 13px;
     text-align: center;
     font-family: "Bebas Neue", cursive;
@@ -55,5 +54,45 @@ export const styles = css`
     border-radius: 4px;
     padding: 2px 15px 2px 15px;
     margin-left: 5px;
+  }
+
+  @media (min-width: 768px) {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    input {
+      margin-top: 0;
+      padding: 5px;
+    }
+
+    .search {
+      padding: 5px 12px 5px 12px;
+      margin-left: 10px;
+    }
+
+    @media (min-width: 1200px) {
+      h1 {
+        font-size: 60px;
+        margin-left: 15px;
+      }
+
+      .link {
+        font-size: 35px;
+      }
+
+      input {
+        margin-top: 0;
+        padding: 10px;
+        width: 25vw;
+      }
+
+      .search {
+        padding: 10px 17px 10px 17px;
+        font-size: 20px;
+      }
+    }
   }
 `;

@@ -46,19 +46,31 @@ export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)
     this.inputValue = "";
   }
 
+  onClickSearch(ev) {
+    ev.preventDefault();
+
+    this.dispatchEvent(
+      new CustomEvent("input-search", { detail: this.inputValue })
+    );
+  }
+
+  getInputValue(e) {
+    this.inputValue = e.target.value;
+  }
+
   render() {
     return html`
       <header>
         <nav>
           <h1><app-link href="/homepage">${localize.msg("popcorn-header:title")}</app-link></h1>
+          <article class="appLinkArticle">
             <app-link class="link" href="/my-movies">${localize.msg("popcorn-header:myMoviesPage")}</app-link>
             <app-link class="link" href="/about">${localize.msg("popcorn-header:aboutPage")}</app-link>
+          </article>
           <div>
             <label for="search">
               <input
-                @input=${(e) => {
-                  this.inputValue = e.target.value;
-                }}
+                @input=${this.getInputValue}
                 data-testid="input"
                 placeholder="Spiderman"
                 type="text"
@@ -71,13 +83,5 @@ export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)
         </nav>
       </header>
     `;
-  }
-
-  onClickSearch(ev) {
-    ev.preventDefault();
-
-    this.dispatchEvent(
-      new CustomEvent("input-search", { detail: this.inputValue })
-    );
   }
 }

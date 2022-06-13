@@ -11,4 +11,10 @@ export const styles = css`
     color: white;
     background-color: transparent;
   }
+
+  /* @media (min-width: 1200px) {
+    .linkApp {
+      font-size: 50px;
+    }
+  } */
 `;
