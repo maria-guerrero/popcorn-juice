@@ -12,7 +12,7 @@ describe("PopcornFooter", () => {
     element = await fixture(`<${tag}></${tag}>}`);
   })
 
-  xit("should be accessible", async () => {
+  it("should be accessible", async () => {
     await expect(element).to.be.accessible();
   });
 });

@@ -51,10 +51,8 @@ export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)
       <header>
         <nav>
           <h1><app-link href="/homepage">${localize.msg("popcorn-header:title")}</app-link></h1>
-          <ul class="appLinkUl">
             <app-link class="link" href="/my-movies">${localize.msg("popcorn-header:myMoviesPage")}</app-link>
             <app-link class="link" href="/about">${localize.msg("popcorn-header:aboutPage")}</app-link>
-          </ul>
           <div>
             <label for="search">
               <input
