@@ -22,4 +22,14 @@ export const styles = css`
     padding-top: 30px;
     padding-bottom: 10px;
   }
+
+  @media (min-width: 768px) {
+    p {
+      width: 50vw;
+    }
+
+    .about {
+      font-size: 20px;
+    }
+  }
 `;

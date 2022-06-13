@@ -18,12 +18,10 @@ export class PopcornListMovies extends LitElement {
     this.movies = [];
   }
 
-  onClickMovie() {
-    this.dispatchEvent(new CustomEvent("movie-element", { detail: this }))
-  }
-
   onClickMovie(item) {
-    this.dispatchEvent(new CustomEvent("on-click-movie", { detail: item.currentTarget }));
+    this.dispatchEvent(
+      new CustomEvent("on-click-movie", { detail: item.currentTarget })
+    );
   }
 
   render() {
@@ -37,8 +35,17 @@ export class PopcornListMovies extends LitElement {
       <ul>
         ${this.movies.map(
           (movie) => html`
-            <li @click=${this.onClickMovie} data-testid="movieElement" class="movieElement" key=${movie.imdbID}>
-              <img src=${movie.Poster} />
+            <li
+              @click=${this.onClickMovie}
+              data-testid="movieElement"
+              class="movieElement"
+              key=${movie.imdbID}
+            >
+              <img
+                alt="Foto de ${movie.Title}"
+                src=${movie.Poster === "N/A"
+                  ? "https://ih1.redbubble.net/image.512138487.5983/fposter,small,wall_texture,product,750x1000.u3.jpg" : movie.Poster}
+              />
               <p class="movieTitle">${movie.Title}</p>
             </li>
           `
