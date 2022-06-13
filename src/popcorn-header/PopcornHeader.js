@@ -1,14 +1,18 @@
 import { LitElement, html } from "lit-element";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
-import { localize, LocalizeMixin } from '@lion/localize';
+import { LionInput } from "@lion/input";
+import { LionForm } from "@lion/form";
+import { localize, LocalizeMixin } from "@lion/localize";
 
 import { Link } from "../app-link/Link.js";
 import { styles } from "./PopcornHeader.styles.js";
 
 const LOCALE_KEY = "popcorn-header";
 
-export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)) {
+export class PopcornHeader extends LocalizeMixin(
+  ScopedElementsMixin(LitElement)
+) {
   static get styles() {
     return styles;
   }
@@ -18,8 +22,8 @@ export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)
       {
         [LOCALE_KEY]: (locale) => {
           const namespaces = {
-            "en-GB": () => import ("./translations/en-GB.js"),
-            "es-ES": () => import ("./translations/es-ES.js"),
+            "en-GB": () => import("./translations/en-GB.js"),
+            "es-ES": () => import("./translations/es-ES.js"),
           };
           return (namespaces[locale] || namespaces["en-GB"])();
         },
@@ -30,7 +34,9 @@ export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)
 
   static get scopedElements() {
     return {
-      "lion-button": LionButtonSubmit,
+      "lion-button-submit": LionButtonSubmit,
+      "lion-input": LionInput,
+      "lion-form": LionForm,
       "app-link": Link,
     };
   }
@@ -47,38 +53,48 @@ export class PopcornHeader extends LocalizeMixin(ScopedElementsMixin(LitElement)
   }
 
   onClickSearch(ev) {
-    ev.preventDefault();
+    const formData = ev.target.serializedValue;
 
     this.dispatchEvent(
-      new CustomEvent("input-search", { detail: this.inputValue })
+      new CustomEvent("input-search", { detail: formData.inputLion })
     );
-  }
-
-  getInputValue(e) {
-    this.inputValue = e.target.value;
   }
 
   render() {
     return html`
       <header>
         <nav>
-          <h1><app-link href="/homepage">${localize.msg("popcorn-header:title")}</app-link></h1>
+          <h1>
+            <app-link href="/homepage"
+              >${localize.msg("popcorn-header:title")}</app-link
+            >
+          </h1>
           <article class="appLinkArticle">
-            <app-link class="link" href="/my-movies">${localize.msg("popcorn-header:myMoviesPage")}</app-link>
-            <app-link class="link" href="/about">${localize.msg("popcorn-header:aboutPage")}</app-link>
+            <app-link class="link" href="/my-movies"
+              >${localize.msg("popcorn-header:myMoviesPage")}</app-link
+            >
+            <app-link class="link" href="/about"
+              >${localize.msg("popcorn-header:aboutPage")}</app-link
+            >
           </article>
           <div>
-            <label for="search">
-              <input
-                @input=${this.getInputValue}
-                data-testid="input"
-                placeholder="Spiderman"
-                type="text"
-              />
-            </label>
-            <lion-button @click=${this.onClickSearch} class="search"
-              >${localize.msg("popcorn-header:searchButton")}</lion-button
-            >
+            <lion-form @submit=${this.onClickSearch}>
+              <form @submit=${(ev) => ev.preventDefault}>
+                <label for="search">
+                  <lion-input
+                    name="inputLion"
+                    data-testid="input"
+                    placeholder="Spiderman"
+                    type="text"
+                  ></lion-input>
+                </label>
+                <lion-button-submit class="search"
+                  >${localize.msg(
+                    "popcorn-header:searchButton"
+                  )}</lion-button-submit
+                >
+              </form>
+            </lion-form>
           </div>
         </nav>
       </header>

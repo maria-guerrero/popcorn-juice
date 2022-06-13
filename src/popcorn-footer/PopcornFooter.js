@@ -28,7 +28,8 @@ export class PopcornFooter extends LocalizeMixin(LitElement) {
   render() {
     return html`
       <footer>
-        <p>${localize.msg("popcorn-footer:made")} &copy;María Guerrero</p>
+        <p>${localize.msg("popcorn-footer:made")} María Guerrero</p>
+        <p>&copy;Popcorn juice, 2022</p>
       </footer>
     `;
   }

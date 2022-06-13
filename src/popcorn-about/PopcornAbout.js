@@ -30,6 +30,7 @@ export class PopcornAbout extends LocalizeMixin(LitElement) {
             <section class="about">
                 <h3 class="welcomeText">${localize.msg("popcorn-about:welcomeText")}</h3> 
                 <p>${localize.msg("popcorn-about:popcornAbout")}</p>
+                <h3 class="footerPopcornTitle">Popcorn juice</h3>
             </section>
         `;
     }

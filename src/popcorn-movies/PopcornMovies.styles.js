@@ -38,4 +38,35 @@ export const styles = css`
     justify-content: center;
     display: flex;
   }
+
+  @media (min-width: 768px) {
+    img {
+      width: 170px;
+      height: 220px;
+      padding: 10px;
+    }
+
+    .movieTitle {
+      width: 20vw;
+    }
+
+    .movieElement {
+      padding: 10px;
+    }
+
+    @media (min-width: 1200px) {
+    img {
+      width: 280px;
+      height: 350px;
+    }
+
+    .movieTitle {
+      width: 20vw;
+      font-size: 20px;
+    }
+
+    .movieElement {
+      padding: 10px;
+    }
+  }
 `;

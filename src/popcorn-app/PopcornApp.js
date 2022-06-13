@@ -59,7 +59,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     });
   }
 
-  onClickMovie(e) {
+  onClickAddMovie(e) {
     this.movies = this.movies.filter((movie) => movie === e.currentTarget);
     console.log(e.currentTarget);
   }
@@ -91,7 +91,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
 
       <popcorn-main .activeRoute=${this.route}>
         <popcorn-list-movies
-          @on-click-movie=${this.onClickMovie}
+          @on-click-movie=${this.onClickAddMovie}
           route="homepage"
           .movies=${this.movies}
         ></popcorn-list-movies>

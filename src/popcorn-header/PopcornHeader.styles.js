@@ -26,6 +26,10 @@ export const styles = css`
     color: #fc6471;
   }
 
+  form {
+    display: flex;
+  }
+
   .appLinkArticle {
     display: flex;
     list-style-type: none;
@@ -71,6 +75,7 @@ export const styles = css`
     .search {
       padding: 5px 12px 5px 12px;
       margin-left: 10px;
+      font-size: 15px
     }
 
     @media (min-width: 1200px) {

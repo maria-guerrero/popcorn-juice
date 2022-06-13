@@ -23,6 +23,12 @@ export const styles = css`
     padding-bottom: 10px;
   }
 
+  .footerPopcornTitle {
+    padding-top: 60px;
+    font-size: 30px;
+    font-family: "Bebas Neue", cursive;
+  }
+
   @media (min-width: 768px) {
     p {
       width: 50vw;
