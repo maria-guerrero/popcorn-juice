@@ -18,14 +18,19 @@
     "@web/dev-server": "^0.1.31",
     "@web/dev-server-storybook": "^0.5.1",
     "@web/test-runner": "^0.13.30",
-    "@web/test-runner-visual-regression": "^0.6.5"
+    "@web/test-runner-playwright": "^0.8.9",
+    "@web/test-runner-puppeteer": "^0.10.5",
+    "@web/test-runner-visual-regression": "^0.6.5",
+    "playwright": "^1.22.2"
   },
   "scripts": {
     "start": "web-dev-server --node-resolve --open --watch",
     "test": "web-test-runner ./src/**/test/*.test.js --node-resolve",
+    "test:puppeteer:firefox": "web-test-runner ./src/**/test/*.test.js --node-resolve --puppeteer --browsers firefox",
     "test:watch": "web-test-runner \"./src/**/test/*.test.js\" --node-resolve --watch --coverage",
     "test:visual-update": "web-test-runner --config .web-test-runner/web-test-runner.config.mjs --update-visual-baseline",
-    "storybook": "wds --config .web-server-storybook/web-server-storybook.config.mjs --watch"
+    "storybook": "wds --config .web-server-storybook/web-server-storybook.config.mjs --watch",
+    "postinstall": "cd node_modules/puppeteer && PUPPETEER_PRODUCT=firefox node install.js"
   },
   "repository": {
     "type": "git",

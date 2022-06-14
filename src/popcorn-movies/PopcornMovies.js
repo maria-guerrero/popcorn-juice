@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html, nothing } from "lit-element";
 
 import { styles } from "./PopcornMovies.styles.js";
 
@@ -16,25 +16,11 @@ export class PopcornMovies extends LitElement {
 
   constructor() {
     super();
-    this.myMovies = [
-      {
-        "Title": "Batman Begins",
-        "Year": "2005",
-        "imdbID": "tt0372784",
-        "Type": "movie",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-      },
-      {
-        "Title": "Batman v Superman: Dawn of Justice",
-        "Year": "2016",
-        "imdbID": "tt2975590",
-        "Type": "movie",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-        },
-    ];
+    this.myMovies = [];
   }
 
   render() {
+    console.log(this.myMovies);
     return html`
       <ul>
       ${this.myMovies.map(
@@ -43,8 +29,8 @@ export class PopcornMovies extends LitElement {
             <label>
             <input type="checkbox" />
             </label>
-              <img src=${movie.Poster} />
-              <p class="movieTitle">${movie.Title}</p>
+              <img src=${movie.poster} />
+              <p class="movieTitle">${movie.title}</p>
             </li>
           `
         )}

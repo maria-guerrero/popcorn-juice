@@ -1,10 +1,18 @@
 import { LitElement, html, nothing } from "lit-element";
+import { ScopedElementsMixin } from "@open-wc/scoped-elements";
+import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
 
 import { styles } from "./PopcornListMovies.styles.js";
 
-export class PopcornListMovies extends LitElement {
+export class PopcornListMovies extends ScopedElementsMixin(LitElement) {
   static get styles() {
     return styles;
+  }
+
+  static get scopedElements() {
+    return {
+      "lion-button-submit": LionButtonSubmit,
+    };
   }
 
   static get properties() {
@@ -18,9 +26,9 @@ export class PopcornListMovies extends LitElement {
     this.movies = [];
   }
 
-  onClickAddMovie(ev) {
+  onClickAddMovie(movie) {
     this.dispatchEvent(
-      new CustomEvent("on-click-movie", { detail: ev.target })
+      new CustomEvent("on-click-movie", { detail: movie })
     );
   }
 
@@ -38,16 +46,16 @@ export class PopcornListMovies extends LitElement {
             <li
               data-testid="movieElement"
               class="movieElement"
-              key=${movie.imdbID}
+              data-key=${movie.imdbID}
             >
               <img
-                alt="Foto de ${movie.Title}"
-                src=${movie.Poster === "N/A"
+                alt="Foto de ${movie.title}"
+                src=${movie.poster === "N/A"
                   ? "https://ih1.redbubble.net/image.512138487.5983/fposter,small,wall_texture,product,750x1000.u3.jpg"
-                  : movie.Poster}
+                  : movie.poster}
               />
-              <p class="movieTitle">${movie.Title}</p>
-              <button @click=${this.onClickAddMovie} class="addButton">Add</button>
+              <p class="movieTitle">${movie.title}</p>
+              <lion-button-submit @click=${() => this.onClickAddMovie(movie)} class="addButton">Add</lion-button-submit>
             </li>
           `
         )}

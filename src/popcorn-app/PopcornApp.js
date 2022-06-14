@@ -60,13 +60,13 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
   }
 
   onClickAddMovie(e) {
-    this.movies = this.movies.filter((movie) => movie === e.target);
-    console.log(e.target);
+    this.myMovies = [...this.myMovies, e.detail];
   }
 
   static get properties() {
     return {
       movies: { type: Array },
+      myMovies: { type: Array },
       inputValue: { type: String },
       route: { type: String },
       params: { type: Object },
@@ -78,6 +78,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
   constructor() {
     super();
     this.movies = [];
+    this.myMovies = [];
     this.inputValue = "";
     this.route = "";
     this.params = {};
@@ -96,7 +97,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
           .movies=${this.movies}
         ></popcorn-list-movies>
         <popcorn-about route="about"></popcorn-about>
-        <popcorn-movies route="my-movies"></popcorn-movies>
+        <popcorn-movies .myMovies=${this.myMovies} route="my-movies"></popcorn-movies>
       </popcorn-main>
 
       <popcorn-footer></popcorn-footer>
