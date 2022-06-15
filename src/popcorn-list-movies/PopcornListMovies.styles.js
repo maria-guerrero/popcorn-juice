@@ -54,7 +54,8 @@ export const styles = css`
 
   .addButton:hover {
     background-color: #385368;
-    transition: transform ease 0.8s;
+    transform: scale(1.05);
+    transition: transform ease 0.1s;
   }
 
   @media (min-width: 768px) {

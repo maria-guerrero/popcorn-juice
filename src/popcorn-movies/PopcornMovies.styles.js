@@ -17,6 +17,12 @@ export const styles = css`
     padding: 10px;
   }
 
+  img:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: transform ease 0.1s;
+  }
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -30,8 +36,7 @@ export const styles = css`
     margin-top: 20px;
   }
   .movieElement:hover {
-    transform: scale(1.05);
-    transition: transform ease 0.1s;
+    
   }
 
   .movieTitle {
@@ -54,6 +59,12 @@ export const styles = css`
     padding: 8px 25px 8px 25px;
     margin-top: 7px;
   }
+
+  .removeMovie:hover {
+    background-color: #385368;
+    transform: scale(1.05);
+    transition: transform ease 0.1s;
+    }
 
   @media (min-width: 768px) {
     img {
@@ -87,11 +98,6 @@ export const styles = css`
 
     .removeMovie {
       font-size: 17px;
-    }
-
-    .removeMovie:hover {
-      background-color: #385368;
-      transition: transform ease 0.8s;
     }
   }
 `;
