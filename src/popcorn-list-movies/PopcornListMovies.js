@@ -1,12 +1,30 @@
 import { LitElement, html, nothing } from "lit-element";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
+import { localize, LocalizeMixin } from "@lion/localize";
+
+const LOCALE_KEY = "popcorn-header";
 
 import { styles } from "./PopcornListMovies.styles.js";
 
-export class PopcornListMovies extends ScopedElementsMixin(LitElement) {
+export class PopcornListMovies extends LocalizeMixin(ScopedElementsMixin(LitElement)) {
   static get styles() {
     return styles;
+  }
+
+  static get localizeNamespaces() {
+    return [
+      {
+        [LOCALE_KEY]: (locale) => {
+          const namespaces = {
+            "en-GB": () => import("./translations/en-GB.js"),
+            "es-ES": () => import("./translations/es-ES.js"),
+          };
+          return (namespaces[locale] || namespaces["en-GB"])();
+        },
+      },
+      ...super.localizeNamespaces,
+    ];
   }
 
   static get scopedElements() {
@@ -49,7 +67,7 @@ export class PopcornListMovies extends ScopedElementsMixin(LitElement) {
               data-key=${movie.id}
             >
               <img
-                alt="Foto de ${movie.title}"
+                alt=${localize.msg("popcorn-list-movies:pictureOf")} ${movie.title}
                 src=${movie.poster === "N/A"
                   ? "https://ih1.redbubble.net/image.512138487.5983/fposter,small,wall_texture,product,750x1000.u3.jpg"
                   : movie.poster}
