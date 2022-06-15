@@ -7,7 +7,8 @@ export const styles = css`
   }
 
   header {
-    background: linear-gradient(to bottom, #ff7903 0%, #f7f7f7 100%);
+    /* background: linear-gradient(to bottom, #ff7903 0%, #e9b013 100%); */
+    background-color: #e8596c;
   }
 
   nav {
@@ -17,7 +18,6 @@ export const styles = css`
     flex-direction: column;
     align-items: center;
     font-family: "Bebas Neue", cursive;
-    border-bottom: 3px solid #34385322;
   }
 
   h1 {
@@ -42,10 +42,18 @@ export const styles = css`
   }
 
   input {
-    border: 3px solid #ff7903;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
     padding: 3px;
-    border-radius: 6px;
     margin-top: 10px;
+  }
+
+  ::placeholder {
+    padding: 5px;
+    background-color: white;
+    color: #0000007d;
+    font-size: 13px;
   }
 
   .search {
@@ -61,6 +69,10 @@ export const styles = css`
   }
 
   @media (min-width: 768px) {
+    ::placeholder {
+      font-size: 14px;
+    }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -75,10 +87,14 @@ export const styles = css`
     .search {
       padding: 5px 12px 5px 12px;
       margin-left: 10px;
-      font-size: 15px
+      font-size: 15px;
     }
 
     @media (min-width: 1200px) {
+      ::placeholder {
+        font-size: 16px;
+      }
+
       h1 {
         font-size: 60px;
         margin-left: 15px;

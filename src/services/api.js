@@ -10,7 +10,7 @@ export const callToApi = async (inputValue) => {
       return data.map((movie) => ({
         title: movie.Title,
         poster: movie.Poster,
-        imdbID: movie.imdbID,
+        id: movie.imdbID,
       }));
     };
 

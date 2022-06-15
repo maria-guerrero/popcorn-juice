@@ -60,7 +60,24 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
   }
 
   onClickAddMovie(e) {
-    this.myMovies = [...this.myMovies, e.detail];
+    let foundMyMovie;
+    for(const myMovie of this.myMovies) {
+      if(myMovie.id === e.detail.id) {
+        foundMyMovie = myMovie;
+      }
+    }
+
+    if(foundMyMovie === undefined) {
+
+      let foundMovie;
+      for(const movie of this.movies) {
+        if(movie.id === e.detail.id) {
+          foundMovie = movie;
+        }
+      }
+
+      this.myMovies = [...this.myMovies, e.detail];
+    }
   }
 
   static get properties() {
@@ -97,7 +114,10 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
           .movies=${this.movies}
         ></popcorn-list-movies>
         <popcorn-about route="about"></popcorn-about>
-        <popcorn-movies .myMovies=${this.myMovies} route="my-movies"></popcorn-movies>
+        <popcorn-movies
+          .myMovies=${this.myMovies}
+          route="my-movies"
+        ></popcorn-movies>
       </popcorn-main>
 
       <popcorn-footer></popcorn-footer>

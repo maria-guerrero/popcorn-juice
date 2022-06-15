@@ -46,7 +46,7 @@ export class PopcornListMovies extends ScopedElementsMixin(LitElement) {
             <li
               data-testid="movieElement"
               class="movieElement"
-              data-key=${movie.imdbID}
+              data-key=${movie.id}
             >
               <img
                 alt="Foto de ${movie.title}"

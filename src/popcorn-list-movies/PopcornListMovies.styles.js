@@ -13,7 +13,7 @@ export const styles = css`
     height: 200px;
     object-fit: cover;
     display: flex;
-    border-radius: 15px;
+    border-radius: 13px;
     padding: 10px;
   }
 
@@ -24,6 +24,7 @@ export const styles = css`
   }
 
   .movieElement {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,6 +77,11 @@ export const styles = css`
       border-radius: 4px;
       padding: 8px 25px 8px 25px;
       margin-top: 7px;
+    }
+
+    .addButton:hover {
+      background-color: #385368;
+      transition: transform ease 0.8s;
     }
 
     @media (min-width: 1200px) {

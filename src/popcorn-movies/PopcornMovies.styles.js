@@ -4,8 +4,8 @@ export const styles = css`
   * {
     padding: 0;
     margin: 0;
-    background-color: #f7f7f7;
     box-sizing: border-box;
+    background-color: #f7f7f7;
   }
 
   img {
@@ -28,6 +28,10 @@ export const styles = css`
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+  }
+  .movieElement:hover {
+    transform: scale(1.05);
+    transition: transform ease 0.1s;
   }
 
   .movieTitle {

@@ -20,7 +20,6 @@ export class PopcornMovies extends LitElement {
   }
 
   render() {
-    console.log(this.myMovies);
     return html`
       <ul>
       ${this.myMovies.map(
