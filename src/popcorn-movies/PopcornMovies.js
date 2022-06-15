@@ -1,11 +1,19 @@
 import { LitElement, html, nothing } from "lit-element";
+import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
+import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 
 import { styles } from "./PopcornMovies.styles.js";
 
-export class PopcornMovies extends LitElement {
+export class PopcornMovies extends ScopedElementsMixin(LitElement) {
 
   static get styles() {
     return styles;
+  }
+
+  static get scopedElements() {
+    return {
+      "lion-button-submit": LionButtonSubmit,
+    };
   }
 
   static get properties() {
@@ -19,6 +27,10 @@ export class PopcornMovies extends LitElement {
     this.myMovies = [];
   }
 
+  removeMovie(movie) {
+    this.dispatchEvent(new CustomEvent("remove-movie", { detail: movie }));
+  }
+
   render() {
     return html`
       <ul>
@@ -30,6 +42,7 @@ export class PopcornMovies extends LitElement {
             </label>
               <img src=${movie.poster} />
               <p class="movieTitle">${movie.title}</p>
+              <lion-button-submit @click=${() => this.removeMovie(movie)} class="removeMovie">Remove</lion-button-submit>
             </li>
           `
         )}

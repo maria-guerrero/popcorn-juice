@@ -43,6 +43,18 @@ export const styles = css`
     display: flex;
   }
 
+  .removeMovie {
+    font-size: 14px;
+    text-align: center;
+    font-family: "Bebas Neue", cursive;
+    color: white;
+    background-color: #6c8fab;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 25px 8px 25px;
+    margin-top: 7px;
+  }
+
   @media (min-width: 768px) {
     img {
       width: 170px;
@@ -71,6 +83,15 @@ export const styles = css`
 
     .movieElement {
       padding: 10px;
+    }
+
+    .removeMovie {
+      font-size: 17px;
+    }
+
+    .removeMovie:hover {
+      background-color: #385368;
+      transition: transform ease 0.8s;
     }
   }
 `;

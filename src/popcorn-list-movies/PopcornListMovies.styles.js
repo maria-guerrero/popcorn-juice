@@ -52,6 +52,11 @@ export const styles = css`
       margin-top: 7px;
     }
 
+  .addButton:hover {
+    background-color: #385368;
+    transition: transform ease 0.8s;
+  }
+
   @media (min-width: 768px) {
     img {
       width: 170px;
@@ -65,23 +70,6 @@ export const styles = css`
 
     .movieElement {
       padding: 10px;
-    }
-
-    .addButton {
-      font-size: 14px;
-      text-align: center;
-      font-family: "Bebas Neue", cursive;
-      color: white;
-      background-color: #6c8fab;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 25px 8px 25px;
-      margin-top: 7px;
-    }
-
-    .addButton:hover {
-      background-color: #385368;
-      transition: transform ease 0.8s;
     }
 
     @media (min-width: 1200px) {

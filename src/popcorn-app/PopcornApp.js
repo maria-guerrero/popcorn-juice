@@ -80,6 +80,10 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     }
   }
 
+  removeMovie(movieSelected) {
+    this.myMovies = this.myMovies.filter((myMovie) => myMovie !== movieSelected.detail);
+  }
+
   static get properties() {
     return {
       movies: { type: Array },
@@ -115,6 +119,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
         ></popcorn-list-movies>
         <popcorn-about route="about"></popcorn-about>
         <popcorn-movies
+          @remove-movie=${this.removeMovie}
           .myMovies=${this.myMovies}
           route="my-movies"
         ></popcorn-movies>
