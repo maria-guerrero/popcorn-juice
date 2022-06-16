@@ -9,6 +9,7 @@ export const styles = css`
   }
 
   .noMoviesMessage {
+    padding-top: 17px;
     font-family: 'Bangers', cursive;
     font-size: 50px;
     display: flex;

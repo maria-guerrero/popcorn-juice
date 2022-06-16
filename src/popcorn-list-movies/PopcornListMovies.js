@@ -50,13 +50,23 @@ export class PopcornListMovies extends LocalizeMixin(
     this.dispatchEvent(new CustomEvent("on-click-movie", { detail: movie }));
   }
 
-  render() {
+  isListMoviesValid() {
     if (!this.movies) {
-      return nothing;
+      return false;
+    } else {
+      return true;
     }
   }
 
   render() {
+    if(!this.isListMoviesValid()) {
+      return nothing;
+    } else if(this.movies.length === 0) {
+      return html `
+        <h3 class="startSearching">${localize.msg("popcorn-list-movies:startSearching")}</h3>
+      `;
+    }
+
     return html`
       <!-- <h3 class="startSearching">Start searching!</h3> -->
       <ul>

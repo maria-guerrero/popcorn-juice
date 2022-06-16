@@ -8,14 +8,15 @@ export const styles = css`
     box-sizing: border-box;
   }
 
-  /* .startSearching {
-    height: 80vh;
-    font-size: 45px;
+ .startSearching {
+    padding-top: 17px;
+    font-family: 'Bangers', cursive;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Bebas Neue", cursive;
-  } */
+    color: #343853;
+  }
 
   img {
     width: 150px;
