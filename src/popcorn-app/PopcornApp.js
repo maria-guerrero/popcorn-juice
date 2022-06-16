@@ -84,7 +84,6 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     return {
       movies: { type: Array },
       myMovies: { type: Array },
-      inputValue: { type: String },
       route: { type: String },
       params: { type: Object },
       query: { type: Object },
@@ -96,7 +95,6 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     super();
     this.movies = [];
     this.myMovies = [];
-    this.inputValue = "";
     this.route = "";
     this.params = {};
     this.query = {};
@@ -122,7 +120,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
           ></popcorn-movies>
         </popcorn-main>
 
-        <popcorn-footer></popcorn-footer>
+        <popcorn-footer class="footer"></popcorn-footer>
       </div>
     `;
   }

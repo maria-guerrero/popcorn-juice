@@ -4,17 +4,15 @@ export const styles = css`
   * {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to bottom, #f7f7f7 0%, #24085100 100%);
   }
 
   footer {
-    padding: 40px 20px 20px 20px;
+    padding: 20px;
     font-family: "Bebas Neue", cursive;
     color: #343853;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
     font-size: 14px;
   }
 
