@@ -4,7 +4,7 @@ export const styles = css`
   * {
     padding: 0;
     margin: 0;
-    background-color: #f7f7f7;
+    background: linear-gradient(to bottom, #f7f7f7 0%, #24085100 100%);
   }
 
   footer {

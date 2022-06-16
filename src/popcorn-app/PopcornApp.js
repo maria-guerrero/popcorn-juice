@@ -59,29 +59,25 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
     });
   }
 
-  onClickAddMovie(e) {
-    let foundMyMovie;
-    for(const myMovie of this.myMovies) {
-      if(myMovie.id === e.detail.id) {
-        foundMyMovie = myMovie;
-      }
-    }
-
-    if(foundMyMovie === undefined) {
-
-      let foundMovie;
-      for(const movie of this.movies) {
-        if(movie.id === e.detail.id) {
-          foundMovie = movie;
-        }
-      }
-
-      this.myMovies = [...this.myMovies, e.detail];
+  findMovieInMovies(providedMovieId) {
+    return this.movies.find((movie) => movie.id === providedMovieId);
+  }
+  findMovieInMyMovies(providedMovieId) {
+    return this.myMovies.find((movie) => movie.id === providedMovieId);
+  }
+  onClickAddMovie({ detail } = {}) {
+    if (
+      !this.findMovieInMyMovies(detail.id) &&
+      this.findMovieInMovies(detail.id)
+    ) {
+      this.myMovies = [...this.myMovies, detail];
     }
   }
 
   removeMovie(movieSelected) {
-    this.myMovies = this.myMovies.filter((myMovie) => myMovie !== movieSelected.detail);
+    this.myMovies = this.myMovies.filter(
+      (myMovie) => myMovie !== movieSelected.detail
+    );
   }
 
   static get properties() {
@@ -109,23 +105,25 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
 
   renderHtml() {
     return html`
-      <popcorn-header @input-search=${this.onClickSearch}></popcorn-header>
+      <div class="container">
+        <popcorn-header @input-search=${this.onClickSearch}></popcorn-header>
 
-      <popcorn-main .activeRoute=${this.route}>
-        <popcorn-list-movies
-          @on-click-movie=${this.onClickAddMovie}
-          route="homepage"
-          .movies=${this.movies}
-        ></popcorn-list-movies>
-        <popcorn-about route="about"></popcorn-about>
-        <popcorn-movies
-          @remove-movie=${this.removeMovie}
-          .myMovies=${this.myMovies}
-          route="my-movies"
-        ></popcorn-movies>
-      </popcorn-main>
+        <popcorn-main class="main" .activeRoute=${this.route}>
+          <popcorn-list-movies
+            @on-click-movie=${this.onClickAddMovie}
+            route="homepage"
+            .movies=${this.movies}
+          ></popcorn-list-movies>
+          <popcorn-about route="about"></popcorn-about>
+          <popcorn-movies
+            @remove-movie=${this.removeMovie}
+            .myMovies=${this.myMovies}
+            route="my-movies"
+          ></popcorn-movies>
+        </popcorn-main>
 
-      <popcorn-footer></popcorn-footer>
+        <popcorn-footer></popcorn-footer>
+      </div>
     `;
   }
 

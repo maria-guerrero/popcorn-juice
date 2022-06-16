@@ -8,6 +8,15 @@ export const styles = css`
     background-color: #f7f7f7;
   }
 
+  .noMoviesMessage {
+    font-family: 'Bangers', cursive;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #343853;
+  }
+
   img {
     width: 150px;
     height: 200px;

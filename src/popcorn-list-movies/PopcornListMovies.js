@@ -3,11 +3,13 @@ import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
 import { localize, LocalizeMixin } from "@lion/localize";
 
-const LOCALE_KEY = "popcorn-header";
+const LOCALE_KEY = "popcorn-list-movies";
 
 import { styles } from "./PopcornListMovies.styles.js";
 
-export class PopcornListMovies extends LocalizeMixin(ScopedElementsMixin(LitElement)) {
+export class PopcornListMovies extends LocalizeMixin(
+  ScopedElementsMixin(LitElement)
+) {
   static get styles() {
     return styles;
   }
@@ -45,9 +47,7 @@ export class PopcornListMovies extends LocalizeMixin(ScopedElementsMixin(LitElem
   }
 
   onClickAddMovie(movie) {
-    this.dispatchEvent(
-      new CustomEvent("on-click-movie", { detail: movie })
-    );
+    this.dispatchEvent(new CustomEvent("on-click-movie", { detail: movie }));
   }
 
   render() {
@@ -58,6 +58,7 @@ export class PopcornListMovies extends LocalizeMixin(ScopedElementsMixin(LitElem
 
   render() {
     return html`
+      <!-- <h3 class="startSearching">Start searching!</h3> -->
       <ul>
         ${this.movies.map(
           (movie) => html`
@@ -67,13 +68,18 @@ export class PopcornListMovies extends LocalizeMixin(ScopedElementsMixin(LitElem
               data-key=${movie.id}
             >
               <img
-                alt=${localize.msg("popcorn-list-movies:pictureOf")} ${movie.title}
+                alt=${localize.msg("popcorn-list-movies:pictureOf")}
+                ${movie.title}
                 src=${movie.poster === "N/A"
                   ? "https://ih1.redbubble.net/image.512138487.5983/fposter,small,wall_texture,product,750x1000.u3.jpg"
                   : movie.poster}
               />
               <p class="movieTitle">${movie.title}</p>
-              <lion-button-submit @click=${() => this.onClickAddMovie(movie)} class="addButton">Add</lion-button-submit>
+              <lion-button-submit
+                @click=${() => this.onClickAddMovie(movie)}
+                class="addButton"
+                >Add</lion-button-submit
+              >
             </li>
           `
         )}

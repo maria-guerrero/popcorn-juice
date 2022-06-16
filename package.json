@@ -24,7 +24,7 @@
     "playwright": "^1.22.2"
   },
   "scripts": {
-    "start": "web-dev-server --node-resolve --open --watch",
+    "start": "web-dev-server --node-resolve --app-index index.html --open --watch",
     "test": "web-test-runner ./src/**/test/*.test.js --node-resolve",
     "test:puppeteer:firefox": "web-test-runner ./src/**/test/*.test.js --node-resolve --puppeteer --browsers firefox",
     "test:watch": "web-test-runner \"./src/**/test/*.test.js\" --node-resolve --watch --coverage",

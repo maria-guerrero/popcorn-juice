@@ -8,6 +8,15 @@ export const styles = css`
     box-sizing: border-box;
   }
 
+  /* .startSearching {
+    height: 80vh;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bebas Neue", cursive;
+  } */
+
   img {
     width: 150px;
     height: 200px;

@@ -1,13 +1,32 @@
 import { LitElement, html, nothing } from "lit-element";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
+import { localize, LocalizeMixin } from "@lion/localize";
 
 import { styles } from "./PopcornMovies.styles.js";
 
-export class PopcornMovies extends ScopedElementsMixin(LitElement) {
+const LOCALE_KEY = "popcorn-movies";
 
+export class PopcornMovies extends LocalizeMixin(
+  ScopedElementsMixin(LitElement)
+) {
   static get styles() {
     return styles;
+  }
+
+  static get localizeNamespaces() {
+    return [
+      {
+        [LOCALE_KEY]: (locale) => {
+          const namespaces = {
+            "en-GB": () => import("./translations/en-GB.js"),
+            "es-ES": () => import("./translations/es-ES.js"),
+          };
+          return (namespaces[locale] || namespaces["en-GB"])();
+        },
+      },
+      ...super.localizeNamespaces,
+    ];
   }
 
   static get scopedElements() {
@@ -31,18 +50,52 @@ export class PopcornMovies extends ScopedElementsMixin(LitElement) {
     this.dispatchEvent(new CustomEvent("remove-movie", { detail: movie }));
   }
 
+  showMessage() {
+    if (this.myMovies.length === 0) {
+      return html`
+        <div>
+          <h3 class="noMoviesMessage">
+            ${localize.msg("popcorn-movies:noMoviesSaved")}
+          </h3>
+        </div>
+      `;
+    }
+  }
+
+  isMyMoviesValid() {
+    if (!this.myMovies) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
+    if (!this.isMyMoviesValid()) {
+      return nothing;
+    } else if (this.myMovies.length === 0) {
+      return this.showMessage();
+    }
+
     return html`
       <ul>
-      ${this.myMovies.map(
+        ${this.myMovies.map(
           (movie) => html`
-            <li data-testid="movieElement" class="movieElement" key=${movie.imdbID}>
-            <label>
-            <input type="checkbox" />
-            </label>
+            <li
+              data-testid="movieElement"
+              class="movieElement"
+              key=${movie.imdbID}
+            >
+              <label>
+                <input type="checkbox" />
+              </label>
               <img src=${movie.poster} />
               <p class="movieTitle">${movie.title}</p>
-              <lion-button-submit @click=${() => this.removeMovie(movie)} class="removeMovie">Remove</lion-button-submit>
+              <lion-button-submit
+                @click=${() => this.removeMovie(movie)}
+                class="removeMovie"
+                >Remove</lion-button-submit
+              >
             </li>
           `
         )}
