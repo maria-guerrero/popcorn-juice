@@ -19,5 +19,3 @@ In this component we render all the components and manage the functionality of t
 |```input-search```|CustomEvent|Search the movie written in the input|
 |```on-click-movie```|CustomEvent|Add a movie to "my movies" clicked button|
 |```remove-movie```|CustomEvent|Remove a movie from "my movies" clicked button|
-
-

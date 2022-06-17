@@ -1,9 +1,9 @@
 # Popcorn, lights off, action! 🍿
-<h2>About this project 🎬</h2>
+## About this project 🎬
 
 The application consists of a movie search engine, with four pages ("homepage", "my movies" and "about"). Here you can save the movies you choose as "to watch" and mark the ones you have already seen. For the latter you can also comment your opinion about the movie. These will be stored on your computer, so that everything you save will not be deleted when you refresh the page.
 
-<h3>What are we going to use?:</h3>
+### What are we going to use?:
 <ul>
   <li>Lion Web Components</li>
   <li>OMDb API</li>

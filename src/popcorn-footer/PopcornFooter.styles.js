@@ -14,6 +14,7 @@ export const styles = css`
     justify-content: space-evenly;
     align-items: center;
     font-size: 14px;
+    background-color: #f7f7f7;
   }
 
   @media (min-width: 1200px) {

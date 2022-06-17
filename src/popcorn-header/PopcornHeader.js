@@ -41,17 +41,6 @@ export class PopcornHeader extends LocalizeMixin(
     };
   }
 
-  static get properties() {
-    return {
-      inputValue: { type: String },
-    };
-  }
-
-  constructor() {
-    super();
-    this.inputValue = "";
-  }
-
   onClickSearch(ev) {
     const formData = ev.target.serializedValue;
 
@@ -71,7 +60,7 @@ export class PopcornHeader extends LocalizeMixin(
           </h1>
           <article class="appLinkArticle">
             <app-link class="link" href="/my-movies"
-              >${localize.msg("popcorn-header:myMoviesPage")}</app-link
+              >${localize.msg(`${LOCALE_KEY}:myMoviesPage`)}</app-link
             >
             <app-link class="link" href="/about"
               >${localize.msg("popcorn-header:aboutPage")}</app-link
