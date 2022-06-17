@@ -55,7 +55,7 @@ export class PopcornMovies extends LocalizeMixin(
       return html`
         <div>
           <h3 class="noMoviesMessage">
-            ${localize.msg("popcorn-movies:noMoviesSaved")}
+            ${localize.msg(`${LOCALE_KEY}:noMoviesSaved`)}
           </h3>
         </div>
       `;
@@ -84,9 +84,9 @@ export class PopcornMovies extends LocalizeMixin(
             <li
               data-testid="movieElement"
               class="movieElement"
-              key=${movie.imdbID}
+              key=${movie.id}
             >
-              <label>Hola
+              <label>Hello
                 <input type="checkbox" />
               </label>
               <img src=${movie.poster} />

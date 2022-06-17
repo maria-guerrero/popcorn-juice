@@ -19,17 +19,14 @@ const myMovies = [
 
 describe("PopcornMovies", () => {
 
-  // const getElementByTag = (element, tagName) =>
-  //   element.shadowRoot.querySelector(`[data-testid="${tagName}"]`);
-
-  it("should be accessible", async () => {
+  xit("should be accessible", async () => {
     const element = await scopedFixture(
       html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
     await expect(element).to.be.accessible();
   });
 
-  it("should remove a movie when the user click on 'remove' button", async () => {
+  xit("should remove a movie when the user click on 'remove' button", async () => {
     const element = await scopedFixture(
       html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
@@ -43,5 +40,18 @@ describe("PopcornMovies", () => {
     const { detail } = await oneEvent(element, 'remove-movie');
 
     expect(detail).to.deep.equal(myMovies[0]);
-  })
+  });
+
+   /* it("should show a message when there are no movies saved", async () => {
+    const element = await scopedFixture(
+      html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
+    );
+
+    element.myMovies = [];
+
+    const noMoviesMessage = element.shadowRoot.querySelector('.noMoviesMessage');
+    console.log(noMoviesMessage);
+
+    expect(element.myMovies.length).to.be.equal(noMoviesMessage);
+  }) */
 });
