@@ -37,5 +37,7 @@ describe("PopcornMovies", () => {
 
     popcornMovie.dispatchEvent(new CustomEvent("remove-movie", { detail: movies[0] })
     );
+
+    expect(element.movies.length).to.be.equal(1);
   })
 });
