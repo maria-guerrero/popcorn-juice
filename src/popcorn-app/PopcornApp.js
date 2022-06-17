@@ -114,6 +114,7 @@ export class PopcornApp extends router(ScopedElementsMixin(LitElement)) {
           ></popcorn-list-movies>
           <popcorn-about route="about"></popcorn-about>
           <popcorn-movies
+            data-testid="popcornMovie"
             @remove-movie=${this.removeMovie}
             .myMovies=${this.myMovies}
             route="my-movies"

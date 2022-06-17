@@ -68,7 +68,6 @@ export class PopcornListMovies extends LocalizeMixin(
     }
 
     return html`
-      <!-- <h3 class="startSearching">Start searching!</h3> -->
       <ul>
         ${this.movies.map(
           (movie) => html`
