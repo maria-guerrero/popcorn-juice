@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "@lion/core";
 import { navigator } from "lit-element-router";
 
 import { styles } from "./Link.styles.js"

@@ -1,4 +1,4 @@
-import { LitElement, html, nothing } from "lit-element";
+import { LitElement, html, nothing } from "@lion/core";
 import { localize, LocalizeMixin } from '@lion/localize';
 
 import { styles } from "./PopcornFooter.styles.js";

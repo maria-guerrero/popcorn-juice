@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from '@lion/core';
 
 import { PopcornAbout } from '../PopcornAbout.js';
 window.customElements.define('popcorn-about', PopcornAbout);

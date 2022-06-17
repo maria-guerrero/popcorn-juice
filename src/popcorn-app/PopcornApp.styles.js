@@ -1,4 +1,4 @@
-import { css } from "lit-element";
+import { css } from "@lion/core";
 
 export const styles = css`
     

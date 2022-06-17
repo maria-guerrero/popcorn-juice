@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from '@lion/core';
 
 import { PopcornHeader } from '../PopcornHeader.js';
 

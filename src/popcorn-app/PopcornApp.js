@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from "@lion/core";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { router } from "lit-element-router";
 

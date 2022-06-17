@@ -1,43 +1,47 @@
-import { expect, fixture, html, waitUntil } from "@open-wc/testing";
+import { expect, fixture, html, oneEvent, waitUntil } from "@open-wc/testing";
 import { PopcornMovies } from "../PopcornMovies.js";
 
-const movies = [
+const scopedElements = { "popcorn-movies": PopcornMovies };
+const scopedFixture = (template) => fixture(template, { scopedElements });
+
+const myMovies = [
   {
     "title": "Batman Begins",
     "id": "tt0372784",
-    "poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+    "poster": "/.web-test-runner/assets/batman.jpg"
     },
     {
     "title": "Batman v Superman: Dawn of Justice",
     "id": "tt2975590",
-    "poster": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+    "poster": "/.web-test-runner/assets/uniquePoster.jpg"
     },
 ]
 
 describe("PopcornMovies", () => {
-  const scopedElements = { "popcorn-movies": PopcornMovies };
-  const scopedFixture = (template) => fixture(template, { scopedElements });
 
   // const getElementByTag = (element, tagName) =>
   //   element.shadowRoot.querySelector(`[data-testid="${tagName}"]`);
 
   it("should be accessible", async () => {
     const element = await scopedFixture(
-      html `<popcorn-movies .movies=${movies}></popcorn-movies>`
+      html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
     await expect(element).to.be.accessible();
   });
 
   it("should remove a movie when the user click on 'remove' button", async () => {
     const element = await scopedFixture(
-      html `<popcorn-movies .movies=${movies}></popcorn-movies>`
+      html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
 
-    const popcornMovie = element.shadowRoot.querySelector('[data-testid="popcornMovie"]');
+    const removeMovieButtons = element.shadowRoot.querySelectorAll('.removeMovie');
+    await waitUntil(() => removeMovieButtons && removeMovieButtons.length > 0);
+    setTimeout(() => {
+      removeMovieButtons[0].click();
+    });
 
-    popcornMovie.dispatchEvent(new CustomEvent("remove-movie", { detail: movies[0] })
-    );
+    const { detail } = await oneEvent(element, 'remove-movie');
 
-    expect(element.movies.length).to.be.equal(1);
+    expect(detail).to.deep.equal(myMovies[0]);
   })
 });

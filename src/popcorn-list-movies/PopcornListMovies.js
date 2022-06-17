@@ -1,4 +1,4 @@
-import { LitElement, html, nothing } from "lit-element";
+import { LitElement, html, nothing } from "@lion/core";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
 import { localize, LocalizeMixin } from "@lion/localize";

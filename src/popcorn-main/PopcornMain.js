@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from "@lion/core";
 import { outlet } from "lit-element-router";
 
 export class PopcornMain extends outlet(LitElement) {
