@@ -2,7 +2,7 @@ import { LitElement, html } from "lit-element";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LionButton, LionButtonReset, LionButtonSubmit } from "@lion/button";
 import { LionInput } from "@lion/input";
-import { LionForm } from "@lion/form";
+import { LionForm } from "@lion/form/define";
 import { localize, LocalizeMixin } from "@lion/localize";
 
 import { Link } from "../app-link/Link.js";
