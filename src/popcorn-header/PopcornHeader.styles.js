@@ -7,7 +7,6 @@ export const styles = css`
   }
 
   header {
-    /* background: linear-gradient(to bottom, #ff7903 0%, #e9b013 100%); */
     background-color: #e8596c;
   }
 

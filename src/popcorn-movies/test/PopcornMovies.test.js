@@ -1,3 +1,4 @@
+import { localize } from "@lion/localize";
 import { expect, fixture, html, oneEvent, waitUntil } from "@open-wc/testing";
 import { PopcornMovies } from "../PopcornMovies.js";
 
@@ -42,16 +43,16 @@ describe("PopcornMovies", () => {
     expect(detail).to.deep.equal(myMovies[0]);
   });
 
-   /* it("should show a message when there are no movies saved", async () => {
+  it("should show a message when there are no movies saved", async () => {
     const element = await scopedFixture(
-      html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
+      html `<popcorn-movies></popcorn-movies>`
     );
 
-    element.myMovies = [];
-
     const noMoviesMessage = element.shadowRoot.querySelector('.noMoviesMessage');
-    console.log(noMoviesMessage);
+    await waitUntil(
+      () => noMoviesMessage.innerText === localize.msg("popcorn-list-movies:noMoviesSaved")
+    );
 
-    expect(element.myMovies.length).to.be.equal(noMoviesMessage);
-  }) */
+    expect(noMoviesMessage.innerText).to.be.equal("popcorn-list-movies:noMoviesSaved");
+  })
 });

@@ -9,7 +9,6 @@ export const styles = css`
   }
 
   .about {
-    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
