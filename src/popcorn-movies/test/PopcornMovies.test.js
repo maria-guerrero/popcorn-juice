@@ -59,8 +59,10 @@ describe("PopcornMovies", () => {
       html`<popcorn-movies></popcorn-movies>`
     );
 
-      const popcornMovies = element.shadowRoot.querySelector('[data-testid="popcorn-movies"]');
+    const popcornMovies = element.shadowRoot.querySelector(
+      '[data-testid="popcorn-movies"]'
+    );
 
-      expect(popcornMovies).to.be.null;
+    expect(popcornMovies).to.be.null;
   });
 });

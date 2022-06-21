@@ -40,7 +40,7 @@ describe("PopcornListMovies", () => {
     const { detail } = await oneEvent(element, "on-click-movie");
 
     expect(detail).to.be.deep.equal(movies[0]);
-  })
+  });
 
   it("should return nothing when there are no movies in the homepage", async () => {
     const element = await scopedFixture(
