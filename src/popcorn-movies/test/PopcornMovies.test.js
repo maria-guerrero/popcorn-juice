@@ -7,52 +7,60 @@ const scopedFixture = (template) => fixture(template, { scopedElements });
 
 const myMovies = [
   {
-    "title": "Batman Begins",
-    "id": "tt0372784",
-    "poster": "/.web-test-runner/assets/batman.jpg"
-    },
-    {
-    "title": "Batman v Superman: Dawn of Justice",
-    "id": "tt2975590",
-    "poster": "/.web-test-runner/assets/uniquePoster.jpg"
-    },
-]
+    title: "Batman Begins",
+    id: "tt0372784",
+    poster: "/.web-test-runner/assets/img/batman.jpg",
+  },
+  {
+    title: "Batman v Superman: Dawn of Justice",
+    id: "tt2975590",
+    poster: "/.web-test-runner/assets/img/uniquePoster.jpg",
+  },
+];
 
 describe("PopcornMovies", () => {
-
   xit("should be accessible", async () => {
     const element = await scopedFixture(
-      html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
+      html`<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
     await expect(element).to.be.accessible();
   });
 
-  xit("should remove a movie when the user click on 'remove' button", async () => {
+  xit("should dispatch event remove-button when remove button is clicked", async () => {
     const element = await scopedFixture(
-      html `<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
+      html`<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
 
-    const removeMovieButtons = element.shadowRoot.querySelectorAll('.removeMovie');
+    const removeMovieButtons =
+      element.shadowRoot.querySelectorAll(".removeMovie");
     await waitUntil(() => removeMovieButtons && removeMovieButtons.length > 0);
     setTimeout(() => {
       removeMovieButtons[0].click();
     });
 
-    const { detail } = await oneEvent(element, 'remove-movie');
+    const { detail } = await oneEvent(element, "remove-movie");
 
     expect(detail).to.deep.equal(myMovies[0]);
   });
 
-  it("should show a message when there are no movies saved", async () => {
+  xit("should show a message when there are no movies saved", async () => {
     const element = await scopedFixture(
-      html `<popcorn-movies></popcorn-movies>`
+      html`<popcorn-movies></popcorn-movies>`
     );
 
-    const noMoviesMessage = element.shadowRoot.querySelector('.noMoviesMessage');
-    await waitUntil(
-      () => noMoviesMessage.innerText === localize.msg("popcorn-list-movies:noMoviesSaved")
+    const noMoviesMessage =
+      element.shadowRoot.querySelector(".noMoviesMessage");
+
+    expect(noMoviesMessage).to.exist;
+  });
+
+  it("should return nothing when there are no movies saved", async () => {
+    const element = await scopedFixture(
+      html`<popcorn-movies></popcorn-movies>`
     );
 
-    expect(noMoviesMessage.innerText).to.be.equal("popcorn-list-movies:noMoviesSaved");
-  })
+      const popcornMovies = element.shadowRoot.querySelector('[data-testid="popcorn-movies"]');
+
+      expect(popcornMovies).to.be.null;
+  });
 });

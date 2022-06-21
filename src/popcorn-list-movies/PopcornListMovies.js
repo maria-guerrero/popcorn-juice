@@ -50,6 +50,14 @@ export class PopcornListMovies extends LocalizeMixin(
     this.dispatchEvent(new CustomEvent("on-click-movie", { detail: movie }));
   }
 
+  renderStartSearchingText() {
+    return html`
+      <h3 class="startSearching">
+        ${localize.msg(`${LOCALE_KEY}:startSearching`)}
+      </h3>
+    `;
+  }
+
   isListMoviesValid() {
     if (!this.movies) {
       return false;
@@ -59,16 +67,14 @@ export class PopcornListMovies extends LocalizeMixin(
   }
 
   render() {
-    if(!this.isListMoviesValid()) {
+    if (!this.isListMoviesValid()) {
       return nothing;
-    } else if(this.movies.length === 0) {
-      return html `
-        <h3 class="startSearching">${localize.msg("popcorn-list-movies:startSearching")}</h3>
-      `;
+    } else if (this.movies.length === 0) {
+      return this.renderStartSearchingText();
     }
 
     return html`
-      <ul>
+      <ul data-testid="popcorn-list-movies">
         ${this.movies.map(
           (movie) => html`
             <li
@@ -77,7 +83,7 @@ export class PopcornListMovies extends LocalizeMixin(
               data-key=${movie.id}
             >
               <img
-                alt=${localize.msg("popcorn-list-movies:pictureOf")}
+                alt=${localize.msg(`${LOCALE_KEY}:pictureOf`)}
                 ${movie.title}
                 src=${movie.poster === "N/A"
                   ? "https://ih1.redbubble.net/image.512138487.5983/fposter,small,wall_texture,product,750x1000.u3.jpg"

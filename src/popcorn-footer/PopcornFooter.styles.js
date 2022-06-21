@@ -7,7 +7,7 @@ export const styles = css`
   }
 
   footer {
-    padding: 20px;
+    padding: 10px;
     font-family: "Bebas Neue", cursive;
     color: #343853;
     display: flex;

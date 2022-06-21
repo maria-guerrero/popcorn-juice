@@ -50,16 +50,14 @@ export class PopcornMovies extends LocalizeMixin(
     this.dispatchEvent(new CustomEvent("remove-movie", { detail: movie }));
   }
 
-  showMessage() {
-    if (this.myMovies.length === 0) {
-      return html`
-        <div>
-          <h3 class="noMoviesMessage">
-            ${localize.msg(`${LOCALE_KEY}:noMoviesSaved`)}
-          </h3>
-        </div>
-      `;
-    }
+  renderNoMoviesMessage() {
+    return html`
+      <div>
+        <h3 class="noMoviesMessage">
+          ${localize.msg(`${LOCALE_KEY}:noMoviesSaved`)}
+        </h3>
+      </div>
+    `;
   }
 
   isMyMoviesValid() {
@@ -74,19 +72,16 @@ export class PopcornMovies extends LocalizeMixin(
     if (!this.isMyMoviesValid()) {
       return nothing;
     } else if (this.myMovies.length === 0) {
-      return this.showMessage();
+      return this.renderNoMoviesMessage();
     }
 
     return html`
-      <ul>
+      <ul data-testid="popcorn-movies">
         ${this.myMovies.map(
           (movie) => html`
-            <li
-              data-testid="movieElement"
-              class="movieElement"
-              key=${movie.id}
-            >
-              <label>Hello
+            <li data-testid="movieElement" class="movieElement" key=${movie.id}>
+              <label
+                >Hello
                 <input type="checkbox" />
               </label>
               <img src=${movie.poster} />
