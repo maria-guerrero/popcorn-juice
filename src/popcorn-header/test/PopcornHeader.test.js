@@ -26,7 +26,7 @@ const movies = [
 ];
 
 describe("PopcornHeader", () => {
-  xit("should be accessible", async () => {
+  it("should be accessible", async () => {
     const element = await scopedFixture(
       html`<popcorn-header></popcorn-header>`
     );
@@ -50,7 +50,7 @@ describe("PopcornHeader", () => {
     expect(element.inputValue).to.be.equal("Guardians of the galaxy");
   });
 
-  xit("should dispatch event input-search when the user press search button", async () => {
+  it("should dispatch event input-search when the user press search button", async () => {
     const element = await scopedFixture(
       html`<popcorn-header></popcorn-header>`
     );

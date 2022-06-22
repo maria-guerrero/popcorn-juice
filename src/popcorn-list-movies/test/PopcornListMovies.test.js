@@ -20,14 +20,14 @@ const movies = [
 
 describe("PopcornListMovies", () => {
 
-  xit("should be accessible", async () => {
+  it("should be accessible", async () => {
     const element = await scopedFixture(
       html `<popcorn-list-movies .movies=${movies}></popcorn-list-movies>`
     );
     await expect(element).to.be.accessible();
   });
 
-  xit("should dispatch event on-click-movie when add button is clicked", async () => {
+  it("should dispatch event on-click-movie when add button is clicked", async () => {
     const element = await scopedFixture(
       html `<popcorn-list-movies .movies=${movies}></popcorn-list-movies>`
     );

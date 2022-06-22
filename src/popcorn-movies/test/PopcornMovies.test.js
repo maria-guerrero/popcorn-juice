@@ -19,14 +19,14 @@ const myMovies = [
 ];
 
 describe("PopcornMovies", () => {
-  xit("should be accessible", async () => {
+  it("should be accessible", async () => {
     const element = await scopedFixture(
       html`<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
     await expect(element).to.be.accessible();
   });
 
-  xit("should dispatch event remove-button when remove button is clicked", async () => {
+  it("should dispatch event remove-button when remove button is clicked", async () => {
     const element = await scopedFixture(
       html`<popcorn-movies .myMovies=${myMovies}></popcorn-movies>`
     );
@@ -43,7 +43,7 @@ describe("PopcornMovies", () => {
     expect(detail).to.deep.equal(myMovies[0]);
   });
 
-  xit("should show a message when there are no movies saved", async () => {
+  it("should show a message when there are no movies saved", async () => {
     const element = await scopedFixture(
       html`<popcorn-movies></popcorn-movies>`
     );

@@ -7,7 +7,7 @@ export const styles = css`
   }
 
   header {
-    background-color: #e8596c;
+    background-color: #c54b5c;
   }
 
   nav {

@@ -7,7 +7,7 @@ export const styles = css`
   }
 
   footer {
-    padding: 10px;
+    padding: 15px;
     font-family: "Bebas Neue", cursive;
     color: #343853;
     display: flex;
@@ -18,8 +18,8 @@ export const styles = css`
   }
 
   @media (min-width: 1200px) {
-      footer {
-        font-size: 20px;
-      }
+    footer {
+      font-size: 20px;
     }
+  }
 `;

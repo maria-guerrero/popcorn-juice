@@ -71,6 +71,7 @@ export class PopcornHeader extends LocalizeMixin(
               <form @submit=${(ev) => ev.preventDefault}>
                 <label for="search">
                   <lion-input
+                  label="search"
                     name="inputLion"
                     data-testid="input"
                     placeholder="Spiderman"
