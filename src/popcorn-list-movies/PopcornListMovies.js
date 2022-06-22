@@ -66,6 +66,14 @@ export class PopcornListMovies extends LocalizeMixin(
     }
   }
 
+  isMovieImageValid(movie) {
+    if(!movie.poster || movie.poster === "N/A") {
+      return "/assets/img/placeholder.jpg";
+    }
+
+    return movie.poster;
+  }
+
   render() {
     if (!this.isListMoviesValid()) {
       return nothing;
@@ -83,11 +91,8 @@ export class PopcornListMovies extends LocalizeMixin(
               data-key=${movie.id}
             >
               <img
-                alt=${localize.msg(`${LOCALE_KEY}:pictureOf`)}
-                ${movie.title}
-                src=${movie.poster === "N/A"
-                  ? "https://ih1.redbubble.net/image.512138487.5983/fposter,small,wall_texture,product,750x1000.u3.jpg"
-                  : movie.poster}
+                alt=${`${localize.msg(`${LOCALE_KEY}:pictureOf`)} ${movie.title}`}
+                src=${this.isMovieImageValid(movie)}
               />
               <p class="movieTitle">${movie.title}</p>
               <lion-button-submit
