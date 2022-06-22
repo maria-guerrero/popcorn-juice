@@ -33,24 +33,7 @@ describe("PopcornHeader", () => {
     await expect(element).to.be.accessible();
   });
 
-  // to review
-  it("should get the value correctly when the user search a movie", async () => {
-    const element = await scopedFixture(
-      html`<popcorn-header></popcorn-header>`
-    );
-
-    element.inputValue = "Guardians of the galaxy";
-    await elementUpdated(element);
-
-    const searchButton = element.shadowRoot.querySelector(
-      '[data-testid="input"]'
-    );
-    searchButton.click();
-
-    expect(element.inputValue).to.be.equal("Guardians of the galaxy");
-  });
-
-  it("should dispatch event input-search when the user press search button", async () => {
+  xit("should dispatch event input-search when the user press search button", async () => {
     const element = await scopedFixture(
       html`<popcorn-header></popcorn-header>`
     );
