@@ -21,6 +21,10 @@ const movies = [
     id: "tt0100669",
     poster: "N/A",
   },
+  {
+    title: "Italian Spiderman",
+    id: "tt2705436",
+  },
 ];
 
 describe("PopcornListMovies", () => {
@@ -58,13 +62,25 @@ describe("PopcornListMovies", () => {
     expect(popcornListMovies).to.be.null;
   });
 
-  it("should return a poster from assets folder when the image is N/A", async () => {
+  it("should return a placeholder when the provided poster is invalid", async () => {
     const element = await scopedFixture(
       html`<popcorn-list-movies .movies=${movies}></popcorn-list-movies>`
     );
 
-    const movieImage = element.shadowRoot.querySelectorAll('[data-testid="movieImage"]');
+    const movieImages = element.shadowRoot.querySelectorAll('[data-testid="movieImage"]');
 
-    expect(movieImage[2].src).to.be.equal("http://localhost:8000/assets/img/placeholder.jpg");
+    expect(movieImages[2].src).to.be.equal("http://localhost:8000/assets/img/placeholder.jpg");
+    expect(movieImages[3].src).to.be.equal("http://localhost:8000/assets/img/placeholder.jpg");
+  });
+
+  it("should return the movie image when the provided poster is valid", async () => {
+    const element = await scopedFixture(
+      html`<popcorn-list-movies .movies=${movies}></popcorn-list-movies>`
+    );
+
+    const movieImages = element.shadowRoot.querySelectorAll('[data-testid="movieImage"]');
+    console.log(movieImages[0].src);
+
+    expect(movieImages[0].src).to.be.equal('http://localhost:8000/.web-test-runner/assets/img/batman.jpg');
   });
 });
