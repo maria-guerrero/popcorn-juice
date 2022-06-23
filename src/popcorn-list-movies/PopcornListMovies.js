@@ -91,6 +91,7 @@ export class PopcornListMovies extends LocalizeMixin(
               data-key=${movie.id}
             >
               <img
+                data-testid="movieImage"
                 alt=${`${localize.msg(`${LOCALE_KEY}:pictureOf`)} ${movie.title}`}
                 src=${this.isMovieImageValid(movie)}
               />
