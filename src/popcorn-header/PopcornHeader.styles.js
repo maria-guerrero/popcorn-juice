@@ -27,6 +27,8 @@ export const styles = css`
 
   form {
     display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .appLinkArticle {
@@ -45,7 +47,6 @@ export const styles = css`
     border: none;
     border-radius: 5px;
     padding: 3px;
-    margin-top: 10px;
   }
 
   ::placeholder {
@@ -55,7 +56,13 @@ export const styles = css`
     font-size: 13px;
   }
 
+  .labelInput {
+    color: #ffffffa4;
+    padding-top: 20px;
+  }
+
   .search {
+    width: 35%;
     font-size: 13px;
     text-align: center;
     font-family: "Bebas Neue", cursive;
@@ -63,8 +70,9 @@ export const styles = css`
     background-color: #343853;
     border: none;
     border-radius: 4px;
-    padding: 2px 15px 2px 15px;
-    margin-left: 5px;
+    padding: 2px 20px 2px 20px;
+    margin-top: 10px;
+    /* margin-left: 5px; */
   }
 
   @media (min-width: 768px) {
@@ -78,9 +86,21 @@ export const styles = css`
       flex-direction: row;
     }
 
+    .appLinkArticle {
+      font-size: 25px;
+    }
+
+    form {
+      flex-direction: row;
+    }
+
     input {
       margin-top: 0;
       padding: 5px;
+    }
+
+    .labelInput {
+      padding-top: 0px;
     }
 
     .search {
